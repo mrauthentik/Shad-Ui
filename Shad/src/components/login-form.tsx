@@ -3,11 +3,17 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import img from "../../public/img.JPG"
+import { useNavigate } from "react-router-dom"
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const navigate = useNavigate()
+  const handleroute = ()=>{
+    navigate('/dashboard')
+  }
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
@@ -17,7 +23,7 @@ export function LoginForm({
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
                 <p className="text-muted-foreground text-balance">
-                  Login to your Acme Inc account
+                  Login to Alaran account 
                 </p>
               </div>
               <div className="grid gap-3">
@@ -41,7 +47,7 @@ export function LoginForm({
                 </div>
                 <Input id="password" type="password" required />
               </div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full" onClick={handleroute}>
                 Login
               </Button>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
@@ -88,7 +94,7 @@ export function LoginForm({
           </form>
           <div className="bg-muted relative hidden md:block">
             <img
-              src="/placeholder.svg"
+              src={img}
               alt="Image"
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
             />
